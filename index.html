@@ -316,7 +316,7 @@ async function fetchReddit(existing) {
         const sid = 'r_' + d.id;
         if (existing.has(sid)) continue;
         const age = Math.round((Date.now()/1000 - d.created_utc) / 60);
-        if (age > 2880) continue; // skip posts older than 48h
+        if (age > 4320) continue; // skip posts older than 72h
         const score = Math.min(95, Math.max(10, Math.round((d.score + d.num_comments * 3) / 4)));
         const coords = geoTag(d.title + ' ' + (d.selftext || ''));
         const s = {
